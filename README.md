@@ -1,71 +1,31 @@
-# Getting Started with Create React App
+## Decripcion
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Cree una app web con una primera pagina, en la que sólamente hay un input que le preguntará el nombre al usuario. Dicho nombre es almacenado en la store de redux, y será obligatorio para que pueda acceder a las siguientes rutas.
 
-## Available Scripts
+La ruta “/pokedex”, se muetra despues de que el usuario ingreso su nombre, la cuál es una ruta protegida que le da un mensaje de bienvenida al usuario utilizando el nombre almacenado en el store, a la vez, listará los pokemones traídos desde la [PokeApi](https://pokeapi.co/). Cada tarjeta, al darle clic llevara a la informacion mas detallada del pokemon de la tarjeta. La ruta “/pokedex” esta paginada.
 
-In the project directory, you can run:
+Cuenta con una estiqueta select que filtra los pokemones por especie.
 
-### `npm start`
+Tiene un input para buscar un pokemon en específico por su nombre.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Funciones y datos del proyecto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Las rutas /pokedex y /pokedex/:id están protegidas.
+- El nombre insertado en el input de la ruta raíz se guarda en la store.
+- En /pokedex se listan y se paginan todos los pokemones.
+- En /pokedex cada tarjeta es un link que lleva a la ruta /pokedex/:id.
+- En /pokedex se pueden filtrar los pokemones por especie.
+- En /pokedex hay un input para buscar un pokemon en específico.
+- En /pokedex/:id se muestra correctamente la información del pokemon seleccionado.
+- Ruta /settings se encarga de: cambiar el número de pokemones por página. (darle a elegir entre 4, 8, 12, 16, 20). Y activar / desactivar un modo oscuro.
 
-### `npm test`
+## Autor
+** Diego Nieves **
+* [LinkedIn](https://www.linkedin.com/in/diego-nieves-04b409242/)
+* [Portafolio web](https://nvs-dlc.netlify.app)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Abrir App
+- [Poke App](https://lustrous-marigold-b9f6ee.netlify.app/)
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# React-Pokedex
+## Contratación
+Si quieres contratarme puedes escribirme a nieves.diego0426@gmail.com 👍.
