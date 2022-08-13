@@ -1,51 +1,55 @@
-import axios from "axios";
-import ornament from "../assets/Group 216 (2).png";
-import logo from "../assets/image 11.png";
-import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import ornament from "../assets/ornament_two.png";
+import logo from "../assets/logo.png";
+import axios from "axios";
 
 const PokeItem = () => {
-  const { id } = useParams();
-  const [pokeData, setPokeData] = useState();
   const [colorCard, setColorCard] = useState({});
+  const [pokeData, setPokeData] = useState();
+  const { id } = useParams();
+
   useEffect(() => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       .then((res) => setPokeData(res.data));
   }, [id]);
+
   useEffect(() => {
     if (pokeData?.species !== undefined) {
       axios.get(pokeData?.species.url).then((res) => setColorCard(res.data));
     }
   }, [pokeData]);
+
   return (
     <>
       {pokeData === undefined ? (
-        <div>
-          <img className="ornament-pokedex" src={ornament} alt="Ornament" />
-          <img className="logo-pokedex" src={logo} alt="Logo" />
-          <div className="Error">
+        <>
+          <img className="ornament__pokedex" src={ornament} alt="Ornament" />
+          <img className="logo__pokedex" src={logo} alt="Logo" />
+          <div className="error">
             <img
               src="https://forums.pokemmo.eu/uploads/monthly_2021_10/poxdex.gif.85c1135c0176f841a90a240b6c572fe3.gif"
               alt="Error"
+              className="error__img"
             />
           </div>
           <Link className="btn-out" to={-1}>
             <i className="bx bx-log-out-circle"></i>
           </Link>
-        </div>
+        </>
       ) : (
-        <div className="Pokemon-item">
+        <div className="pokeItem">
           <Link className="btn-out" to={-1}>
             <i className="bx bx-log-out-circle"></i>
           </Link>
-          <img className="ornament-pokedex" src={ornament} alt="Ornament" />
-          <img className="logo-pokedex" src={logo} alt="Logo" />
-          <div>
-            <div className="Pokemon-detail">
+          <img className="ornament__pokedex" src={ornament} alt="Ornament" />
+          <img className="logo__pokedex" src={logo} alt="Logo" />
+          <div className="pokeItem__div">
+            <div className="pokemon">
               <div
                 style={{ background: colorCard.color?.name }}
-                className="Pokemon-detail-ornament"
+                className="pokemonOrnament"
               >
                 <img
                   src={
@@ -56,12 +60,13 @@ const PokeItem = () => {
                       .front_default
                   }
                   alt="Pokemon"
+                  className="pokemonOrnament__img"
                 />
               </div>
-              <div className="Pokemon-detail-info">
-                <span>#{pokeData?.id}</span>
-                <h1>{pokeData?.name}</h1>
-                <ul>
+              <div className="pokemonInfo">
+                <span className="pokemonInfo__span">#{pokeData?.id}</span>
+                <h2 className="pokemonInfo__h2">{pokeData?.name}</h2>
+                <ul className="pokemonInfo__ul">
                   <li>
                     <p>Peso</p>
                     <span>{pokeData?.weight}</span>
@@ -71,18 +76,18 @@ const PokeItem = () => {
                     <span>{pokeData?.height}</span>
                   </li>
                 </ul>
-                <div className="type-and-skills">
-                  <section className="Pokemon-type">
-                    <h2>Tipo</h2>
-                    <div>
+                <div className="typeAndSkills">
+                  <section className="typeAndSkills__section pokemon__type">
+                    <h2 className="typeAndSkills__h2">Tipo</h2>
+                    <div className="pokemon__type__div">
                       {pokeData?.types.map((type) => (
                         <div key={type.type.name}>{type.type.name}</div>
                       ))}
                     </div>
                   </section>
-                  <section className="Pokemon-skills">
-                    <h2>Habilidades</h2>
-                    <div>
+                  <section className="typeAndSkills__section pokemon__skills">
+                    <h2 className="typeAndSkills__h2">Habilidades</h2>
+                    <div className="pokemon__skills__div">
                       {pokeData?.abilities.map((ability) => (
                         <div key={ability.ability.url}>
                           {ability.ability.name}
@@ -91,8 +96,8 @@ const PokeItem = () => {
                     </div>
                   </section>
                 </div>
-                <div className="Pokemon-stats">
-                  <h2>Stats</h2>
+                <div className="pokemonStats">
+                  <h2 className="pokemonStats__h2">Stats</h2>
                   <ul className="container">
                     {pokeData?.stats.map((stat) => (
                       <div className="card" key={stat.stat.name}>
@@ -130,14 +135,16 @@ const PokeItem = () => {
                 </div>
               </div>
             </div>
-            <div className="Pokemon-movements">
-              <h2>Movimientos</h2>
+            <div className="pokemonMovements">
+              <h2 className="pokemonMovements__h2">Movimientos</h2>
               <ul>
                 {pokeData?.moves.length === 0 ? (
                   <h2>{pokeData?.name} no tiene movimientos para mostrar</h2>
                 ) : (
                   pokeData?.moves.map((move) => (
-                    <li key={move.move.name}>{move.move.name}</li>
+                    <li className="pokemonMovements__li" key={move.move.name}>
+                      {move.move.name}
+                    </li>
                   ))
                 )}
               </ul>

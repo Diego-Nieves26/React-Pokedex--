@@ -1,15 +1,17 @@
-import "./App.css";
 import { HashRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "./components/Home";
-import Pokedex from "./components/Pokedex";
-import PokeItem from "./components/PokeItem";
-import ProtectedRoutes from "./components/ProtectedRoutes";
-import Settings from "./components/Settings";
+import {
+  ProtectedRoutes,
+  Home,
+  Pokedex,
+  PokeItem,
+  Settings,
+} from "./components";
+import "./App.css";
 
 function App() {
   return (
     <HashRouter>
-      <div className="pokeball"></div>
+      <div className="pokeball__background"></div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<ProtectedRoutes />}>
@@ -18,7 +20,7 @@ function App() {
         </Route>
         <Route path="/settings" element={<Settings />} />
       </Routes>
-      <Link className="btn-settings" to="/settings">
+      <Link className="btn__settings" to="/settings">
         <i className="bx bxs-cog"></i>
       </Link>
     </HashRouter>

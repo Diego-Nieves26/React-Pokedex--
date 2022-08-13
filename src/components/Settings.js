@@ -1,15 +1,18 @@
-import { Link } from "react-router-dom";
+import { getTheme } from "../store/slices/theme.slice";
 import { useDispatch, useSelector } from "react-redux";
 import { getItem } from "../store/slices/item.slice";
-import { getTheme } from "../store/slices/theme.slice";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Settings = () => {
   const dispatch = useDispatch();
   const item = useSelector((state) => state.item);
   const theme = useSelector((state) => state.theme);
+
   const itemPerPage = (e) => {
     dispatch(getItem(e.target.value));
   };
+
   const darkOrLigth = (e) => {
     dispatch(getTheme());
     if (e.target.checked) {
@@ -18,15 +21,26 @@ const Settings = () => {
       document.body.classList.remove("dark");
     }
   };
+
   return (
-    <div className="Settings">
+    <motion.div
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      exit={{
+        x: window.innerWidth,
+        transition: {
+          duration: 0.3,
+        },
+      }}
+      className="settings"
+    >
       <Link className="btn-arrow" to={-1}>
         <i className="bx bx-left-arrow-alt"></i>
       </Link>
       <h1>Settings</h1>
-      <div className="setting-theme">
+      <div className="setTheme">
         <h2>Theme</h2>
-        <div>
+        <div className="setTheme__div">
           <span>Light</span>
           <div>
             <input
@@ -35,14 +49,18 @@ const Settings = () => {
               onChange={darkOrLigth}
               checked={theme}
             />
-            <label htmlFor="switch" className="lbl-settings"></label>
+            <label htmlFor="switch" className="lblSettings"></label>
           </div>
           <span>Dark</span>
         </div>
       </div>
-      <div className="setting-item-per-page">
+      <div className="setItem">
         <h2>Item per page</h2>
-        <select onChange={itemPerPage} value={item}>
+        <select
+          onChange={itemPerPage}
+          value={item}
+          className="setItems__select"
+        >
           <option value={4}>4 items</option>
           <option value={8}>8 items</option>
           <option value={12}>12 items</option>
@@ -50,7 +68,7 @@ const Settings = () => {
           <option value={20}>20 items</option>
         </select>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
