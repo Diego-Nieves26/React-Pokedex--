@@ -19,6 +19,15 @@ Tiene un input para buscar un pokemon en específico por su nombre.
 - En /pokedex/:id se muestra correctamente la información del pokemon seleccionado.
 - Ruta /settings se encarga de: cambiar el número de pokemones por página. (darle a elegir entre 4, 8, 12, 16, 20). Y activar / desactivar un modo oscuro.
 
+## Utilice
+
+- React
+- Axios
+- Css
+- Framer-Motion
+- Redux-Toolkit
+- React-Router-Dom
+
 ## Autor
 ** Diego Nieves **
 * [LinkedIn](https://www.linkedin.com/in/diego-nieves-04b409242/)
