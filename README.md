@@ -1,3 +1,9 @@
+# Pokedex App
+<div align="center" width="50">
+    <img src="./src/assets/img.png" width="75%"/>
+</div><br/>
+
+
 ## Decripcion
 
 Cree una app web con una primera pagina, en la que sólamente hay un input que le preguntará el nombre al usuario. Dicho nombre es almacenado en la store de redux, y será obligatorio para que pueda acceder a las siguientes rutas.
@@ -23,6 +29,7 @@ Tiene un input para buscar un pokemon en específico por su nombre.
 
 - React
 - Axios
+- Html
 - Css
 - Framer-Motion
 - Redux-Toolkit
@@ -31,10 +38,15 @@ Tiene un input para buscar un pokemon en específico por su nombre.
 ## Autor
 ** Diego Nieves **
 * [LinkedIn](https://www.linkedin.com/in/diego-nieves-04b409242/)
-* [Portafolio web](https://nvs-dlc.netlify.app)
+* [Portafolio web](https://nvs-portfolio.netlify.app)
 
 ## Abrir App
 - [Poke App](https://lustrous-marigold-b9f6ee.netlify.app/)
 
-## Contratación
-Si quieres contratarme puedes escribirme a nieves.diego0426@gmail.com 👍.
+## Contactame
+Si quieres contactarme puedes escribirme a nieves.diego0426@gmail.com 👍.
+
+<br/><br/>
+<div align="right" width="50">
+    <img src="./src/assets/logo_secondary.webp" width="15%"/>
+</div>
